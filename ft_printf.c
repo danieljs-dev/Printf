@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:36:47 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/02 08:06:41 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/02 08:19:29 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_printf(const char *str, ...)
 	int				count;
 	int				i;
 
+	if (!str)
+		return (-1);
 	i = 0;
 	count = 0;
 	va_start(ap, str);
@@ -67,9 +69,11 @@ int	main(void)
 	//unsigned int large_value = 4000000000;
 	//unsigned int max_value = UINT_MAX;
 	
-	ft_printf("Hello %s, you have %% new messages.\n", "Alice", 5);
-	ft_printf("Hello %s, you have %j new messages.\n", "Alice", 5);
+	//ft_printf("Hello %s, you have %% new messages.\n", "Alice", 5);
+	//ft_printf("Hello %s, you have %j new messages.\n", "Alice", 5);
 	//ft_printf("Unsigned small value: %u\n", small_value);
+	int i = ft_printf(NULL);
+	printf("result = %d", i);
 	//ft_printf("Unsigned large value: %u\n", large_value);
 	//ft_printf("Unsigned max value: %u\n", max_value);
 	
