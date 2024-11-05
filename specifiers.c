@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 22:04:21 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/02 08:04:50 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/04 22:17:46 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@
 t_print_func	find_function(char specifier)
 {
 	int							i;
-	static const t_specifier	specifiers[6] = {
+	static const t_specifier	specifiers[9] = {
+	{'c', print_char},
 	{'s', print_string},
+	{'p', print_pointer},
 	{'d', print_int},
 	{'i', print_int},
-	{'u', print_unsigned},
-	{'c', print_char},
+	{'u', print_unsigned_dec},
+	{'x', print_unsigned_lower_hex},
+	{'X', print_unsigned_upper_hex},
 	{'\0', NULL}
 	};
 	//t_specifier					*specifiers;

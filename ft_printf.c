@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:36:47 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/02 08:19:29 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/04 22:40:05 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,39 +43,56 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			count += handle_specifier(str[i + 1], ap);
-			i++;
+			//i++;
+			i += 2;
+			continue ;
 		}
-		else
+		/*else
 		{
 			ft_putchar_fd(str[i], 1);
 			count++;
-		}
+		}*/
+		count += ((str[i] != '%') * (ft_putchar_fd(str[i], 1), 1));
 		i++;
 	}
 	va_end(ap);
 	return (count);
 }
 
-/*
-cc ft_printf.c wrappers.c specifiers.c libft/ft_putchar_fd.c libft/ft_itoa.c libft/ft_putstr_fd.c libft/ft_strlen.c libft/ft_strchr.c
-*/
-
 #include <stdio.h>
 #include <limits.h>
-
 int	main(void)
 {
 	//unsigned int small_value = 42;
 	//unsigned int large_value = 4000000000;
 	//unsigned int max_value = UINT_MAX;
+	int				i;
+	unsigned int 	num = 255;
+	int 			a = 42;
+    int 			*ptr = &a;
+
+	//i = ft_printf("Hello %s, you have %% new messages.\n", "Alice", 5);
+
+    // Teste 1: Hexadecimal minúsculo
+    //i = ft_printf("Hexadecimal minúsculo: %x\n", num);
+
+    // Teste 2: Hexadecimal maiúsculo
+    //i = ft_printf("Hexadecimal maiúsculo: %X\n", num);
+
+	// Teste: Imprimir o endereço do ponteiro
+    i = ft_printf("%p", ptr);
+    //i = ft_printf("O endereço de NULL é: %p\n", NULL);
 	
-	//ft_printf("Hello %s, you have %% new messages.\n", "Alice", 5);
 	//ft_printf("Hello %s, you have %j new messages.\n", "Alice", 5);
 	//ft_printf("Unsigned small value: %u\n", small_value);
-	int i = ft_printf(NULL);
-	printf("result = %d", i);
+	//ft_printf(NULL);
+	printf("\nresult = %d", i);
 	//ft_printf("Unsigned large value: %u\n", large_value);
 	//ft_printf("Unsigned max value: %u\n", max_value);
 	
 	return (0);
 }
+
+/*
+cc ft_printf.c wrappers.c specifiers.c libft/ft_putchar_fd.c libft/ft_itoa.c libft/ft_putstr_fd.c libft/ft_strlen.c libft/ft_strchr.c
+*/

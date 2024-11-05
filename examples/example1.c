@@ -29,7 +29,7 @@ static int ft_int_to_ascii(int n) {
     return (n + '0');
 }
 
-static int ft_numlen(int n) {
+static int ft_numlen_dec(int n) {
     int len = 0;
     if (n == 0)
         return (1);
@@ -42,7 +42,7 @@ static int ft_numlen(int n) {
 
 char *ft_itoa(int n) {
     int sign = 0;
-    int digits_len = ft_numlen(n);
+    int digits_len = ft_numlen_dec(n);
     char *num;
     
     if (n < 0) sign = 1;

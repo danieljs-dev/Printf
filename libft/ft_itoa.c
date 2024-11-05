@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 14:22:04 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/10/25 17:49:11 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/04 22:15:30 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_int_to_ascii(int n)
 	return (n + '0');
 }
 
-static int	ft_numlen(int n)
+static int	ft_numlen_dec(int n)
 {
 	int		len;
 
@@ -41,7 +41,7 @@ char	*ft_itoa(int n)
 	char	*num;
 
 	sign = 0;
-	digits_len = ft_numlen(n);
+	digits_len = ft_numlen_dec(n);
 	if (n < 0)
 		sign = 1;
 	num = (char *)malloc((digits_len + sign + 1) * sizeof(char));
