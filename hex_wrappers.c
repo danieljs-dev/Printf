@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned_hex_fd.c                            :+:      :+:    :+:   */
+/*   hex_wrappers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 02:08:50 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/12 04:35:21 by dajesus-         ###   ########.fr       */
+/*   Created: 2024/11/12 04:24:50 by dajesus-          #+#    #+#             */
+/*   Updated: 2024/11/12 04:40:01 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_putunsigned_hex_fd(unsigned long n, const char *hex_base, int fd)
+int	print_unsigned_lower_hex(va_list args)
 {
-	char		buf[16];
-	int			count;
-	int			i;
+	unsigned int		value;
 
-	i = 0;
-	count = 0;
-	if (n == 0)
-	{
-		ft_putchar_fd('0', fd);
-		return (1);
-	}
-	while (n > 0)
-	{
-		buf[i++] = hex_base[n % 16];
-		n = n / 16;
-	}
-	while (--i >= 0)
-	{
-		ft_putchar_fd(buf[i], fd);
-		count++;
-	}
-	return (count);
+	value = va_arg(args, unsigned int);
+	ft_putunsigned_hex_fd(value, HEX_LOWER, STDOUT_FILENO);
+	return (ft_numlen_hex(value));
+}
+
+int	print_unsigned_upper_hex(va_list args)
+{
+	unsigned int		value;
+
+	value = va_arg(args, unsigned int);
+	ft_putunsigned_hex_fd(value, HEX_UPPER, STDOUT_FILENO);
+	return (ft_numlen_hex(value));
 }

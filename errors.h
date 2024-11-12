@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wrappers.h                                         :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 21:59:40 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/12 04:22:40 by dajesus-         ###   ########.fr       */
+/*   Created: 2024/11/12 07:22:53 by dajesus-          #+#    #+#             */
+/*   Updated: 2024/11/12 07:48:29 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRAPPERS_H
-# define WRAPPERS_H
+#ifndef ERRORS_H
+# define ERRORS_H
 
-# include <stdarg.h>
+typedef enum e_error_code
+{
+	ERR_NULL,
+	ERR_NIL,
+	ERR_UNKNOWN,
+	ERR_COUNT
+}	t_error_code;
 
-int	print_char(va_list args);
-int	print_string(va_list args);
-int	print_pointer(va_list args);
-int	print_int(va_list args);
-int	print_unsigned_dec(va_list args);
-int	print_unsigned_lower_hex(va_list args);
-int	print_unsigned_upper_hex(va_list args);
+const char	*get_error_message(t_error_code code);
 
 #endif

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wrappers.h                                         :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 21:59:40 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/12 04:22:40 by dajesus-         ###   ########.fr       */
+/*   Created: 2024/11/12 07:26:52 by dajesus-          #+#    #+#             */
+/*   Updated: 2024/11/12 07:48:35 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRAPPERS_H
-# define WRAPPERS_H
+#include "errors.h"
 
-# include <stdarg.h>
+const char	*get_error_message(t_error_code code)
+{
+	static const char	*error_messages[ERR_COUNT] = {
+		"(null)",
+		"(nil)",
+		"Unknown error."
+	};
 
-int	print_char(va_list args);
-int	print_string(va_list args);
-int	print_pointer(va_list args);
-int	print_int(va_list args);
-int	print_unsigned_dec(va_list args);
-int	print_unsigned_lower_hex(va_list args);
-int	print_unsigned_upper_hex(va_list args);
-
-#endif
+	if (code >= ERR_NULL && code < ERR_COUNT)
+	{
+		return (error_messages[code]);
+	}
+	return (error_messages[ERR_UNKNOWN]);
+}

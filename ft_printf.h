@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:38:43 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/11 23:03:19 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/12 07:29:14 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include "wrappers.h"
+# include "errors.h"
 # include "libft/libft.h"
 
 # define HEX_LOWER "0123456789abcdef"

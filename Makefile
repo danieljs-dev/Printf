@@ -5,7 +5,9 @@ INCLUDE     = -Ilibft -I.
 
 LIBFT_DIR  	= ./libft
 
-SRCS        = ft_printf.c specifiers.c wrappers.c
+SRCS        = ft_printf.c specifiers.c str_wrappers.c\
+			  num_wrappers.c hex_wrappers.c ptr_wrappers.c\
+			  errors.c
 OBJS        = $(SRCS:%.c=%.o)
 
 all: libft $(NAME)

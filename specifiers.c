@@ -6,21 +6,11 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 22:04:21 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/04 22:17:46 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/12 04:23:07 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*static t_specifier	*create_specifiers(void)
-{
-	static t_specifier		specifiers[3];
-
-	specifiers[0] = (t_specifier){'s', print_string};
-	specifiers[1] = (t_specifier){'d', print_int};
-	specifiers[2] = (t_specifier){'\0', NULL};
-	return (specifiers);
-}*/
 
 t_print_func	find_function(char specifier)
 {
@@ -36,10 +26,8 @@ t_print_func	find_function(char specifier)
 	{'X', print_unsigned_upper_hex},
 	{'\0', NULL}
 	};
-	//t_specifier					*specifiers;
 
 	i = 0;
-	//specifiers = create_specifiers();
 	while (specifiers[i].specifier != '\0')
 	{
 		if (specifiers[i].specifier == specifier)

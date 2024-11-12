@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned_hex_fd.c                            :+:      :+:    :+:   */
+/*   ptr_wrappers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 02:08:50 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/12 04:35:21 by dajesus-         ###   ########.fr       */
+/*   Created: 2024/11/01 22:00:45 by dajesus-          #+#    #+#             */
+/*   Updated: 2024/11/12 07:43:16 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_putunsigned_hex_fd(unsigned long n, const char *hex_base, int fd)
+int	print_pointer(va_list args)
 {
-	char		buf[16];
-	int			count;
-	int			i;
+	uintptr_t		ptr_value;
+	int				count;
+	char			*error_message;
 
-	i = 0;
 	count = 0;
-	if (n == 0)
+	error_message = (char *)get_error_message(ERR_NIL);
+	ptr_value = (uintptr_t)va_arg(args, void *);
+	if (ptr_value == 0)
 	{
-		ft_putchar_fd('0', fd);
-		return (1);
+		ft_putstr_fd(error_message, STDOUT_FILENO);
+		return (ft_strlen(error_message));
 	}
-	while (n > 0)
-	{
-		buf[i++] = hex_base[n % 16];
-		n = n / 16;
-	}
-	while (--i >= 0)
-	{
-		ft_putchar_fd(buf[i], fd);
-		count++;
-	}
+	ft_putstr_fd("0x", 1);
+	count += 2;
+	count += ft_putunsigned_hex_fd(ptr_value, HEX_LOWER, STDOUT_FILENO);
 	return (count);
 }
