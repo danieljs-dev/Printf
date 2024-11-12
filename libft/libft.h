@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 09:27:56 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/10/28 14:38:30 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/12 02:56:42 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ int			ft_tolower(int c);
 int			ft_toupper(int c);
 int			ft_isprint(int c);
 int			ft_atoi(const char *nptr);
+int			ft_numlen_dec(unsigned int n);
+int			ft_numlen_hex(unsigned int n);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
+int			ft_putunsigned_dec_fd(unsigned int n, int fd);
+int			ft_putunsigned_hex_fd(unsigned long n, const char *hex_base, int fd);
 void		ft_bzero(void *s, size_t n);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putchar_fd(char c, int fd);

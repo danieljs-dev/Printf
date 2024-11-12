@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 14:22:04 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/04 22:15:30 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/12 02:56:12 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,6 @@ static int	ft_int_to_ascii(int n)
 	if (n < 0)
 		n = -n;
 	return (n + '0');
-}
-
-static int	ft_numlen_dec(int n)
-{
-	int		len;
-
-	len = 0;
-	if (n == 0)
-		return (1);
-	while (n != 0)
-	{
-		n = n / 10;
-		len++;
-	}
-	return (len);
 }
 
 char	*ft_itoa(int n)
