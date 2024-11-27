@@ -6,7 +6,7 @@
 /*   By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:38:43 by dajesus-          #+#    #+#             */
-/*   Updated: 2024/11/26 14:24:49 by dajesus-         ###   ########.fr       */
+/*   Updated: 2024/11/27 01:22:18 by dajesus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdlib.h>
 # include <stdint.h>
 # include "wrappers.h"
 # include "errors.h"
