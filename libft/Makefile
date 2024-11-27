@@ -6,7 +6,7 @@
 #    By: dajesus- <dajesus-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 14:40:17 by dajesus-          #+#    #+#              #
-#    Updated: 2024/11/12 02:21:47 by dajesus-         ###   ########.fr        #
+#    Updated: 2024/11/26 22:54:17 by dajesus-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,13 +35,13 @@ OBJS_BONUS 	= $(BONUS_SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
 
 bonus: $(OBJS_BONUS)
 	@make OBJS="$(OBJS_BONUS)" --no-print-directory
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	ar rcs $(NAME) $@
 
 clean:
 	rm -rf $(OBJS) $(OBJS_BONUS)

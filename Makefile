@@ -17,7 +17,7 @@ libft:
 
 $(NAME): $(OBJS)
 	cp $(LIBFT_DIR)/libft.a $(NAME)
-	ar rcs $(NAME) $(OBJS)
+	ar rcs $(NAME) $?
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
